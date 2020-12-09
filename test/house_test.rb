@@ -66,6 +66,7 @@ class HouseTest < Minitest::Test
   end
 
   def test_we_can_print_the_details_as_a_hash
+    skip
     house = House.new("$400000", "123 sugar lane")
     room_1 = Room.new(:bedroom, 10, '13')
     room_2 = Room.new(:bedroom, 11, '15')
@@ -106,6 +107,7 @@ class HouseTest < Minitest::Test
   end
 
   def test_we_sort_rooms_by_category
+    skip
     house = House.new("$400000", "123 sugar lane")
     room_1 = Room.new(:bedroom, 10, '13')
     room_2 = Room.new(:bedroom, 11, '15')
