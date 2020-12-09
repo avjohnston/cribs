@@ -45,7 +45,7 @@ class House
   end
 
   def rooms_sorted_by_area
-    rooms.sort {|a,b| b <=> a}
+    # rooms.sort {|a,b| b <=> a}
   end
 
 
