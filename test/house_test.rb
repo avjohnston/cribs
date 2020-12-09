@@ -66,7 +66,6 @@ class HouseTest < Minitest::Test
   end
 
   def test_we_can_print_the_details_as_a_hash
-    skip
     house = House.new("$400000", "123 sugar lane")
     room_1 = Room.new(:bedroom, 10, '13')
     room_2 = Room.new(:bedroom, 11, '15')
@@ -76,7 +75,7 @@ class HouseTest < Minitest::Test
     house.add_room(room_2)
     house.add_room(room_3)
     house.add_room(room_4)
-    assert_equal hash, house.details
+    assert_equal details_hash, house.details
   end
 
   def test_we_can_find_price_per_square_foot
@@ -93,6 +92,7 @@ class HouseTest < Minitest::Test
   end
 
   def test_we_can_sort_rooms_by_area
+    skip
     house = House.new("$400000", "123 sugar lane")
     room_1 = Room.new(:bedroom, 10, '13')
     room_2 = Room.new(:bedroom, 11, '15')
@@ -103,6 +103,18 @@ class HouseTest < Minitest::Test
     house.add_room(room_3)
     house.add_room(room_4)
     assert_equal [room_4, room_3, room_2, room_1], house.rooms_sorted_by_area
-  end 
+  end
 
+  def test_we_sort_rooms_by_category
+    house = House.new("$400000", "123 sugar lane")
+    room_1 = Room.new(:bedroom, 10, '13')
+    room_2 = Room.new(:bedroom, 11, '15')
+    room_3 = Room.new(:living_room, 25, '15')
+    room_4 = Room.new(:basement, 30, '41')
+    house.add_room(room_1)
+    house.add_room(room_2)
+    house.add_room(room_3)
+    house.add_room(room_4)
+    assert_equal hash_category, house.rooms_by_category
+  end
 end

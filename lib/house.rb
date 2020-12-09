@@ -21,7 +21,7 @@ class House
   end
 
   def above_market_average?
-    return true if @price.scan(/[0-9]/).join().to_i > 500000
+    return true if @price.scan(/[0-9]/).join.to_i > 500000
     false
   end
 
@@ -36,17 +36,27 @@ class House
   end
 
   def details
-    hash = Hash.new
-
+    details_hash = {
+      :price => '',
+      :address => ''
+    }
+    hash.map do |price, address|
+      hash[:price] = @price
+      hash[:address] = @address
+    end
   end
 
   def price_per_square_foot
-    (@price.scan(/[.0-9]/).join().to_f / area).round(2)
+    (@price.scan(/[.0-9]/).join.to_f / area).round(2)
   end
 
   def rooms_sorted_by_area
-    # rooms.sort {|a,b| b <=> a}
+    @rooms.map do |room|
+      rooms.sort
+    end
   end
 
+  def rooms_by_category
 
+  end
 end
